@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career — Mohcine Rouessi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --white: #ffffff;
+      --grey-50: #fafafa;
+      --grey-100: #f5f5f5;
+      --grey-200: #e5e5e5;
+      --grey-400: #a3a3a3;
+      --grey-500: #737373;
+      --grey-700: #404040;
+      --grey-900: #171717;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: var(--white);
+      color: var(--grey-900);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ---------- Navbar ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.8);
+      z-index: 10;
+      animation: slideDown 0.6s ease-out both;
+    }
+
+    nav .logo {
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    nav .logo a {
+      text-decoration: none;
+      color: var(--grey-900);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--grey-500);
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: var(--grey-900);
+    }
+
+    /* ---------- Page header ---------- */
+    .page-header {
+      padding: 8rem 2rem 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeUp 0.8s ease-out 0.2s both;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .page-header .subtitle {
+      margin-top: 0.75rem;
+      font-size: 1.1rem;
+      color: var(--grey-500);
+    }
+
+    /* ---------- Timeline ---------- */
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 1.1rem;
+      top: 0;
+      bottom: 2rem;
+      width: 2px;
+      background: var(--grey-200);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0.55rem;
+      top: 0.45rem;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--grey-900);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--grey-200);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .timeline-item:hover::before {
+      transform: scale(1.3);
+      box-shadow: 0 0 0 3px var(--grey-400);
+    }
+
+    .timeline-item .period {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--grey-400);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .timeline-item .company {
+      font-size: 0.95rem;
+      color: var(--grey-500);
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-item p {
+      font-size: 0.92rem;
+      color: var(--grey-500);
+      line-height: 1.75;
+    }
+
+    .timeline-item .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.85rem;
+    }
+
+    .timeline-item .tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.25rem 0.7rem;
+      border-radius: 9999px;
+      background: var(--grey-100);
+      color: var(--grey-700);
+    }
+
+    .timeline-item ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+    }
+
+    .timeline-item ul li {
+      position: relative;
+      padding-left: 1rem;
+      font-size: 0.92rem;
+      color: var(--grey-500);
+      line-height: 1.75;
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-item ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.65rem;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--grey-400);
+    }
+
+    /* ---------- Education ---------- */
+    .education {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    .education h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .edu-item {
+      margin-bottom: 2rem;
+    }
+
+    .edu-item .period {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--grey-400);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    .edu-item .school {
+      font-size: 0.92rem;
+      color: var(--grey-500);
+    }
+
+    /* ---------- Scroll reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--grey-400);
+      border-top: 1px solid var(--grey-100);
+    }
+
+    /* ---------- Keyframes ---------- */
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      nav ul { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo"><a href="index.html">MR</a></div>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="career.html" class="active">Career</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <h1>Career</h1>
+    <p class="subtitle">A timeline of the roles and experiences that have shaped my engineering path.</p>
+  </header>
+
+  <main class="timeline">
+    <div class="timeline-item reveal">
+      <div class="period">June 2024 — Present</div>
+      <h3>Senior Software Engineer — Data Engineering</h3>
+      <div class="company">Babbel · Berlin, Germany</div>
+      <ul>
+        <li>Designed and implemented a scalable batch and streaming data architecture on Databricks across 2 AWS accounts.</li>
+        <li>Built and operated a high-throughput streaming pipeline processing 50M+ events/day via Amazon Kinesis (8 shards) and ECS (8 tasks), with &lt; 5s processing time per stage.</li>
+        <li>Engineered dual-serving architecture — Delta Lake for analytics (~1h latency via CDC/DMS) and API Gateway for product-facing APIs (&lt; 100ms p95).</li>
+        <li>Led migration of 15+ batch pipelines from legacy Snowflake workflows to Databricks, improving performance, maintainability, and cost transparency.</li>
+        <li>Implemented pipeline-level cost attribution, increasing Databricks cost visibility down to individual workloads.</li>
+        <li>Developed monitoring &amp; alerting framework covering data quality, SLA tracking, and failure detection.</li>
+        <li>Optimized Spark &amp; Delta Lake workloads (partitioning, compaction, Z-ordering) to enhance performance at scale.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Databricks</span>
+        <span class="tag">Spark</span>
+        <span class="tag">Kinesis</span>
+        <span class="tag">Delta Lake</span>
+        <span class="tag">AWS</span>
+        <span class="tag">ECS</span>
+        <span class="tag">Python</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="period">July 2022 — May 2024</div>
+      <h3>Software Engineer</h3>
+      <div class="company">Stylight · Munich, Germany</div>
+      <ul>
+        <li>Designed and implemented event-driven data pipelines using Kinesis Data Streams, Lambda, SNS, SQS, and DynamoDB.</li>
+        <li>Enhanced and refactored Scala-based backend for ML features (A/B testing, ranking, image search) serving 60M+ products across 5 regions, powered by Elasticsearch.</li>
+        <li>Built batch data processing jobs using Spark with Scala as part of ETL workflows running on AWS EMR.</li>
+        <li>Built CI/CD workflows on CircleCI for system components.</li>
+        <li>Managed BigQuery data warehouse.</li>
+        <li>Built and maintained data pipelines orchestrated by Apache Airflow on AWS EKS.</li>
+        <li>Implemented monitoring and alerting using Datadog, Healthchecks.io, and PagerDuty.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">Scala</span>
+        <span class="tag">Spark</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Airflow</span>
+        <span class="tag">Elasticsearch</span>
+        <span class="tag">BigQuery</span>
+        <span class="tag">Kinesis</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="period">Jan 2021 — June 2022</div>
+      <h3>Data Engineer</h3>
+      <div class="company">IBM · Casablanca, Morocco</div>
+      <ul>
+        <li>Designed and built a cloud-native IoT platform on AWS, enabling real-time ingestion, processing, and visualization of device telemetry data.</li>
+        <li>Architected device connectivity and edge processing using AWS IoT Core, Greengrass, Lambda, and built streaming pipelines with Kinesis, S3, and serverless components.</li>
+        <li>Modeled sensor data in AWS IoT SiteWise, developed monitoring dashboards, and automated device onboarding workflows using the AWS SDK for Python.</li>
+        <li>Developed authentication-enabled web portal (login/registration) using React.js, hosted on S3, CloudFront, and Route 53.</li>
+        <li>Provisioned infrastructure with CloudFormation (IaC) and implemented CI/CD pipelines via Azure DevOps.</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">AWS IoT</span>
+        <span class="tag">Kinesis</span>
+        <span class="tag">Lambda</span>
+        <span class="tag">Python</span>
+        <span class="tag">React</span>
+        <span class="tag">CloudFormation</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Education -->
+  <section class="education reveal">
+    <h2>Education</h2>
+    <div class="edu-item">
+      <div class="period">Sept 2017 — July 2021</div>
+      <h3>Master's of Engineering, Computer Science</h3>
+      <div class="school">National School of Applied Sciences · Al Hoceima, Morocco</div>
+    </div>
+    <div class="edu-item">
+      <div class="period">Sept 2014 — July 2017</div>
+      <h3>Bachelor's of Science, Mathematics and Physics</h3>
+      <div class="school">Faculty of Science and Technologies · Settat, Morocco</div>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Mohcine Rouessi</footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.15 }
+    );
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

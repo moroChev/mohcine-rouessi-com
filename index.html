@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohcine Rouessi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --white: #ffffff;
+      --grey-50: #fafafa;
+      --grey-100: #f5f5f5;
+      --grey-200: #e5e5e5;
+      --grey-400: #a3a3a3;
+      --grey-500: #737373;
+      --grey-700: #404040;
+      --grey-900: #171717;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: var(--white);
+      color: var(--grey-900);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ---------- Navbar ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.8);
+      z-index: 10;
+      animation: slideDown 0.6s ease-out both;
+    }
+
+    nav .logo {
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--grey-500);
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--grey-900);
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      animation: fadeUp 0.8s ease-out 0.2s both;
+    }
+
+    .hero p {
+      margin-top: 1.25rem;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--grey-500);
+      max-width: 480px;
+      animation: fadeUp 0.8s ease-out 0.45s both;
+    }
+
+    .hero .cta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      animation: fadeUp 0.8s ease-out 0.65s both;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .btn-primary {
+      background: var(--grey-900);
+      color: var(--white);
+    }
+
+    .btn-secondary {
+      background: var(--grey-100);
+      color: var(--grey-700);
+    }
+
+    /* ---------- Floating orbs (decorative) ---------- */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+      pointer-events: none;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 340px;
+      height: 340px;
+      background: var(--grey-200);
+      top: 10%;
+      left: -5%;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 260px;
+      height: 260px;
+      background: var(--grey-300, #d4d4d4);
+      bottom: 10%;
+      right: -3%;
+      animation-delay: -4s;
+    }
+
+    /* ---------- Sections ---------- */
+    section {
+      padding: 5rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ---------- About ---------- */
+    .about p {
+      color: var(--grey-500);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    /* ---------- Projects ---------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: var(--grey-50);
+      border: 1px solid var(--grey-200);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--grey-500);
+    }
+
+    /* ---------- Contact ---------- */
+    .contact {
+      text-align: center;
+      padding-bottom: 6rem;
+    }
+
+    .contact p {
+      color: var(--grey-500);
+      margin-bottom: 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--grey-500);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--grey-900);
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--grey-400);
+      border-top: 1px solid var(--grey-100);
+    }
+
+    /* ---------- Scroll reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- Keyframes ---------- */
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-30px) scale(1.05);
+      }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 600px) {
+      nav ul {
+        gap: 1.25rem;
+      }
+
+      .hero .cta {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit">MR</a></div>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="career.html">Career</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <h1>Hi, I'm <span style="color: #60a5fa">Mohcine</span></h1>
+    <p>Software / Data Engineer</p>
+    <div class="cta">
+      <a href="career.html" class="btn btn-primary">View Career</a>
+      <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact reveal">
+    <h2>Let's Connect</h2>
+    <p>Feel free to reach out — I'm always happy to chat, about any topic.</p>
+    <div class="social-links">
+      <a href="https://github.com/moroChev" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://linkedin.com/in/mohcine-r" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:rouessi.mohcine@gmail.com">Email</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>&copy; 2026 Mohcine Rouessi</footer>
+
+  <!-- Scroll reveal script -->
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

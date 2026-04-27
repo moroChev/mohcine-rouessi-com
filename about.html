@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Mohcine Rouessi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --white: #ffffff;
+      --grey-50: #fafafa;
+      --grey-100: #f5f5f5;
+      --grey-200: #e5e5e5;
+      --grey-400: #a3a3a3;
+      --grey-500: #737373;
+      --grey-700: #404040;
+      --grey-900: #171717;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: var(--white);
+      color: var(--grey-900);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ---------- Navbar ---------- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.8);
+      z-index: 10;
+      animation: slideDown 0.6s ease-out both;
+    }
+
+    nav .logo {
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    nav .logo a {
+      text-decoration: none;
+      color: var(--grey-900);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--grey-500);
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: var(--grey-900);
+    }
+
+    /* ---------- Page header ---------- */
+    .page-header {
+      padding: 8rem 2rem 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeUp 0.8s ease-out 0.2s both;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .page-header .subtitle {
+      margin-top: 0.75rem;
+      font-size: 1.1rem;
+      color: var(--grey-500);
+    }
+
+    /* ---------- Content ---------- */
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    .content p {
+      color: var(--grey-500);
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+
+    .content h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--grey-900);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .value-card {
+      background: var(--grey-50);
+      border: 1px solid var(--grey-200);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .value-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    .value-card h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .value-card p {
+      font-size: 0.88rem;
+      margin-bottom: 0;
+    }
+
+    /* ---------- Scroll reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--grey-400);
+      border-top: 1px solid var(--grey-100);
+    }
+
+    /* ---------- Keyframes ---------- */
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      nav ul { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo"><a href="index.html">MR</a></div>
+    <ul>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="career.html">Career</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <h1>About Me</h1>
+    <p class="subtitle">Data Engineer turned Software Engineer — building at the intersection of both.</p>
+  </header>
+
+  <main class="content">
+    <div class="reveal">
+      <p>
+        I started my career as a Data Engineer, designing pipelines and
+        wrangling large-scale datasets — but I quickly realized that the
+        most impactful data work happens when you approach it with a true
+        software engineering mindset. Clean abstractions, testable code,
+        reliable deployments, and thoughtful system design aren't just
+        "nice to haves" in the data world — they're essential.
+      </p>
+      <p>
+        That realization shaped everything I do today. I enjoy building
+        software products that process and serve massive volumes of data,
+        where engineering rigor meets the messiness of real-world
+        information. Whether it's architecting a high-throughput ingestion
+        system, optimizing a query engine, or shipping a data-intensive
+        application end to end — I'm happiest at the intersection of data
+        and software craftsmanship.
+      </p>
+    </div>
+
+    <div class="reveal">
+      <h2>What Drives Me</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>Engineering Rigour</h3>
+          <p>Data systems deserve the same standards as any production software — version control, CI/CD, testing, and observability.</p>
+        </div>
+        <div class="value-card">
+          <h3>Scale-First Thinking</h3>
+          <p>I think in terms of throughput, latency, and fault tolerance from day one, not as an afterthought.</p>
+        </div>
+        <div class="value-card">
+          <h3>Product Mindset</h3>
+          <p>Pipelines and platforms are products too. I care about the developer experience and the end-user impact.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>&copy; 2026 Mohcine Rouessi</footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.15 }
+    );
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
