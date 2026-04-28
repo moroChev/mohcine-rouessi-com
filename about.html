@@ -85,7 +85,14 @@
       padding: 8rem 2rem 3rem;
       max-width: 800px;
       margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
       animation: fadeUp 0.8s ease-out 0.2s both;
+    }
+
+    .page-header .header-text {
+      flex: 1;
     }
 
     .page-header h1 {
@@ -155,6 +162,17 @@
       margin-bottom: 0;
     }
 
+    /* ---------- Profile photo ---------- */
+    .profile-photo {
+      display: block;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 10%;
+      flex-shrink: 0;
+    }
+
     /* ---------- Scroll reveal ---------- */
     .reveal {
       opacity: 0;
@@ -189,6 +207,10 @@
 
     @media (max-width: 600px) {
       nav ul { gap: 1.25rem; }
+      .page-header {
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -203,8 +225,10 @@
   </nav>
 
   <header class="page-header">
-    <h1>About Me</h1>
-    <p class="subtitle">Data Engineer turned Software Engineer — building at the intersection of both.</p>
+    <img src="Mohcine_Rouessi.png" alt="Mohcine Rouessi" class="profile-photo" />
+    <div class="header-text">
+      <h1>About Me</h1>
+    </div>
   </header>
 
   <main class="content">
@@ -217,30 +241,10 @@
         software craftsmanship.
       </p>
       <p>
-        Outside of work, I'm drawn to health and well-being, philosophy,
-        and history. I prefer deep, meaningful conversations over
-        surface-level small talk — the kind that challenge ideas and
-        leave you thinking long after.
+        Outside of work, I’m into fitness, health, and topics like philosophy and history. You’ll often find me having drinks with friends by the river, when the weather cooperates and the sun decides to show up. I enjoy conversations that go beyond the surface, the kind that challenge ideas and leave you with something to think about.
       </p>
     </div>
 
-    <div class="reveal">
-      <h2>What Drives Me</h2>
-      <div class="values-grid">
-        <div class="value-card">
-          <h3>Engineering Rigour</h3>
-          <p>Data systems deserve the same standards as any production software — version control, CI/CD, testing, and observability.</p>
-        </div>
-        <div class="value-card">
-          <h3>Scale-First Thinking</h3>
-          <p>I think in terms of throughput, latency, and fault tolerance from day one, not as an afterthought.</p>
-        </div>
-        <div class="value-card">
-          <h3>Product Mindset</h3>
-          <p>Pipelines and platforms are products too. I care about the developer experience and the end-user impact.</p>
-        </div>
-      </div>
-    </div>
   </main>
 
   <footer>&copy; 2026 Mohcine Rouessi</footer>
