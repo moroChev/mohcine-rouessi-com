@@ -166,6 +166,17 @@
       margin-bottom: 0.75rem;
     }
 
+    .timeline-item .company a {
+      color: #2563eb;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.3s;
+    }
+
+    .timeline-item .company a:hover {
+      color: #1d4ed8;
+    }
+
     .timeline-item p {
       font-size: 0.92rem;
       color: var(--grey-500);
@@ -252,6 +263,17 @@
       color: var(--grey-500);
     }
 
+    .edu-item .school a {
+      color: #2563eb;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.3s;
+    }
+
+    .edu-item .school a:hover {
+      color: #1d4ed8;
+    }
+
     /* ---------- Scroll reveal ---------- */
     .reveal {
       opacity: 0;
@@ -301,14 +323,14 @@
 
   <header class="page-header">
     <h1>Career</h1>
-    <p class="subtitle">A timeline of the roles and experiences that have shaped my engineering path.</p>
+    <p class="subtitle">Experiences that have shaped my engineering path.</p>
   </header>
 
   <main class="timeline">
     <div class="timeline-item reveal">
       <div class="period">June 2024 — Present</div>
       <h3>Software / Data Engineer</h3>
-      <div class="company">Babbel · Berlin, Germany</div>
+      <div class="company"><a href="https://www.babbel.com" target="_blank" rel="noopener noreferrer">Babbel</a> · Berlin, Germany</div>
       <p>
         Building scalable batch and streaming data architectures on Databricks and AWS, processing 50M+ events per day. Designing dual-serving systems that power both analytics and real-time product experiences.
       </p>
@@ -325,7 +347,7 @@
     <div class="timeline-item reveal">
       <div class="period">July 2022 — May 2024</div>
       <h3>Software Engineer</h3>
-      <div class="company">Stylight · Munich, Germany</div>
+      <div class="company"><a href="https://www.stylight.com" target="_blank" rel="noopener noreferrer">Stylight</a> · Munich, Germany</div>
       <p>
         Worked on event-driven pipelines and a Scala-based backend serving 60M+ products across 5 regions. Built batch processing jobs on Spark/EMR and maintained data workflows orchestrated by Airflow on EKS.
       </p>
@@ -342,7 +364,7 @@
     <div class="timeline-item reveal">
       <div class="period">Jan 2021 — June 2022</div>
       <h3>Data Engineer</h3>
-      <div class="company">IBM · Casablanca, Morocco</div>
+      <div class="company"><a href="https://www.ibm.com" target="_blank" rel="noopener noreferrer">IBM</a> · Casablanca, Morocco</div>
       <p>
         Designed and built a cloud-native IoT platform on AWS for real-time ingestion, processing, and visualization of device telemetry data. Handled everything from edge connectivity to infrastructure as code.
       </p>
@@ -362,12 +384,12 @@
     <div class="edu-item">
       <div class="period">Sept 2017 — July 2021</div>
       <h3>Master's of Engineering, Computer Science</h3>
-      <div class="school">National School of Applied Sciences · Al Hoceima, Morocco</div>
+      <div class="school"><a href="https://ensah.ma" target="_blank" rel="noopener noreferrer">National School of Applied Sciences</a> · Al Hoceima, Morocco</div>
     </div>
     <div class="edu-item">
       <div class="period">Sept 2014 — July 2017</div>
       <h3>Bachelor's of Science, Mathematics and Physics</h3>
-      <div class="school">Faculty of Science and Technologies · Settat, Morocco</div>
+      <div class="school"><a href="https://www.fsts.ac.ma/" target="_blank" rel="noopener noreferrer">Faculty of Science and Technologies</a> · Settat, Morocco</div>
     </div>
   </section>
 
